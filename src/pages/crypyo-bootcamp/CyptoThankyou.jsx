@@ -11,7 +11,8 @@ const CryptoThankyou = () => {
             ></i>
             <p className="orbitron text-center text-lg sm:text-2xl md:text-4xl text-white font-bold">
               YOU HAVE SUCCESSFULLY REGISTERED FOR THE TECHYJAUNT CRYPTO
-              BOOTCAMP! <br />
+              BOOTCAMP! 
+              <br />
               <span className="inline-block text-sm md:text-base saira my-5">
                 {" "}
                 Your registration to join the TechyJaunt crypto accelerator
