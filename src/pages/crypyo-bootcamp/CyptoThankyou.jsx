@@ -21,7 +21,7 @@ const CryptoThankyou = () => {
               </span>
             </p>
             <Link
-              to="https://chat.whatsapp.com/GP6lC3WenS6AJDNQBNzZYX"
+              to="https://chat.whatsapp.com/KjXOUvUKjqYCoCQ18ob2zm"
               className="saira text-center bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
             >
               JOIN THE WHATSAPP COMMUNITY{" "}
