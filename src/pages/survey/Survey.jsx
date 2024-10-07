@@ -202,7 +202,7 @@ const Survey = ({ openModal, closeModal }) => {
                 handleChange={handleChange}
                 inputType="text"
                 inputName="firstName"
-                placeTxt="enter the your first name"
+                placeTxt="enter your first name"
                 inputVal={formData.firstName}
                 errorTxt={error.firstName}
               />
@@ -213,7 +213,7 @@ const Survey = ({ openModal, closeModal }) => {
                 handleChange={handleChange}
                 inputType="text"
                 inputName="lastName"
-                placeTxt="enter the your last name"
+                placeTxt="enter your last name"
                 inputVal={formData.lastName}
                 errorTxt={error.lastName}
               />
