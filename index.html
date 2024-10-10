@@ -74,7 +74,8 @@
       twq("config", "omxly");
       if (
         window.location.pathname === "/launchpad/thank-you" ||
-        window.location.pathname == "/schedule/thank-you"
+        window.location.pathname == "/schedule/thank-you" ||
+        "/survey/thank-you"
       ) {
         //Twitter conversion tracking event code
         // Insert Twitter Event ID
@@ -162,7 +163,7 @@
 
     <!-- Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
+      !(function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
           "gtm.start": new Date().getTime(),
