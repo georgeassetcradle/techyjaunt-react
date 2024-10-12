@@ -197,7 +197,7 @@ const Survey = ({ openModal, closeModal }) => {
               Kindly fill out the survey
             </h1>
             <div className="flex flex-col gap-2">
-              <label htmlFor="">What is first name?</label>
+              <label htmlFor="">What is your first name?</label>
               <GlobalText
                 handleChange={handleChange}
                 inputType="text"
