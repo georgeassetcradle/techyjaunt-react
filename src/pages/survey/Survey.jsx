@@ -206,6 +206,7 @@ const Survey = ({ openModal, closeModal }) => {
                 inputVal={formData.firstName}
                 errorTxt={error.firstName}
               />
+              
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="">What is your last name?</label>
