@@ -27,9 +27,9 @@ export const validateSurvey = (formData, update) => {
   }
   if (
     formData.apartmentType === "Others" &&
-    formData.otherapartmentType === ""
+    formData.otherApartmentType === ""
   ) {
-    errors.otherapartmentType = "please enter your apartment type";
+    errors.otherApartmentType = "please enter your apartment type";
     isValid = false;
   }
   // bedroom number
@@ -56,9 +56,9 @@ export const validateSurvey = (formData, update) => {
   }
   if (
     formData.apartmentRent === "Others" &&
-    formData.otherapartmentRent === ""
+    formData.otherApartmentRent === ""
   ) {
-    errors.apartmentRent = "please enter the apartment rent";
+    errors.otherApartmentRent = "please enter the apartment rent";
     isValid = false;
   }
 
@@ -78,7 +78,7 @@ export const validateSurvey = (formData, update) => {
     isValid = false;
   }
   if (
-    formData.prptyMgmtReason === "Others" &&
+    formData.prptyMgmtReason  === "Others" &&
     formData.otherPrptyMgmtReason === ""
   ) {
     errors.otherPrptyMgmtReason = "please enter you response";

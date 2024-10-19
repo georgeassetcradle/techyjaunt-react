@@ -93,38 +93,17 @@ const Survey = ({ openModal, closeModal }) => {
     });
   };
 
-  const payloadCreation = (formData) => {
-    if (formData.apartmentType && formData.apartmentType != "Others") {
-      delete formData.otherApartmentType;
-    }
-    if (formData.bedroomNumber && formData.bedroomNumber != "Others") {
-      delete formData.otherBedroomNumber;
-    }
-    if (formData.apartmentRent && formData.apartmentRent != "Others") {
-      delete formData.otherApartmentRent;
-    }
-    if (formData.prptyMgmt && formData.prptyMgmt != "Others") {
-      delete formData.otherPrptyMgmt;
-    }
-    if (formData.prptyHireReason && formData.prptyHireReason != "Others") {
-      delete formData.otherPrptyHireReason;
-    }
-    if (formData.prptyMgmtReason && formData.prptyMgmtReason != "others") {
-      delete formData.otherPrptyMgmtReason;
-    }
-    return formData;
-  };
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    let data = payloadCreation(formData);
+    let data = formData;
     let isValid = validateSurvey(data, setError);
     if (isValid) {
       setPending(true);
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-react.onrender.com/survey", {
+        .post("https://techyjaunt-react.onrender.com/survey-register", {
           ...data,
         })
         .then((res) => {

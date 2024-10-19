@@ -1,20 +1,12 @@
-import Avatars from "../../globalcomponents/Avatars";
-import {
-  Circle,
-  CurlyLine,
-  FancyUnderline,
-  Star,
-  Star2,
-} from "../../resources/resources";
-import CommunityForm from "./Communityform";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import AdvancedForm from "./AdvancedForm";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Carouselnew from "../../globalcomponents/Carouselnew";
-import Loader from "../../globalcomponents/Loader";
 import { useSnackbar } from "notistack";
+import { gender, howHeard } from "../../resources/resources";
+import Loader from "../../globalcomponents/Loader";
 
-const Community = () => {
+export const ApplyBtn = () => {
   const { enqueueSnackbar } = useSnackbar();
   const handleSnackbar = (message, variant) => {
     enqueueSnackbar(message, { variant });
@@ -23,18 +15,16 @@ const Community = () => {
   const [openModal, setOpenModal] = useState(false);
   const [phone, setPhone] = useState();
   const [shake, setShake] = useState(false);
-  const countryCode = sessionStorage.getItem("countryCode");
-  window.addEventListener("scroll", () => {
-    setScrollNumber(window.scrollY);
-  });
 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
-    skills: "",
-    state: "",
+    selectedCourse: "",
+    knowlegeOfTechyJaunt: "",
+    gender: "",
+    reasonForConsideration: "",
   });
 
   const payload = {
@@ -42,8 +32,10 @@ const Community = () => {
     lastName: formData.lastName.trim(),
     email: formData.email.trim(),
     phoneNumber: formData.phoneNumber.trim(),
-    skills: formData.skills,
-    state: formData.state,
+    selectedCourse: formData.selectedCourse,
+    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
+    gender: formData.gender,
+    reasonForConsideration: formData.reasonForConsideration,
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -70,12 +62,20 @@ const Community = () => {
       errors.phoneNumber = "phone number is required";
       isValid = false;
     }
-    if (formData.skills === "") {
-      errors.skills = "select a skill";
+    if (formData.selectedCourse === "") {
+      errors.selectedCourse = "please select a course";
       isValid = false;
     }
-    if (formData.state === "") {
-      errors.state = "select a state";
+    if (formData.reasonForConsideration === "") {
+      errors.reasonForConsideration = "please fill in your answer";
+      isValid = false;
+    }
+    if (formData.gender === "") {
+      errors.gender = "please select an option";
+      isValid = false;
+    }
+    if (formData.knowlegeOfTechyJaunt === "") {
+      errors.knowlegeOfTechyJaunt = "please select an option";
       isValid = false;
     }
     setFormErrors(errors);
@@ -89,15 +89,15 @@ const Community = () => {
     if (isValid) {
       setPending(true);
       setShake(false);
-      // Submit the form data or perform other actions
+      // Submit the form data or perform other actions https://techyjaunt-react.onrender.com/advanced-register
       axios
-        .post("https://techyjaunt-react.onrender.com/community-register", {
+        .post("https://techyjaunt-react.onrender.com/advanced-register", {
           ...payload,
         })
         .then((res) => {
           setPending(false);
           if (res.data.status === "registered") {
-            sessionStorage.setItem("isCommunityRegistered", true);
+            sessionStorage.setItem("advancedRegistered", true);
             navigate("thank-you");
           }
           if (res.data.status === "existing") {
@@ -137,9 +137,15 @@ const Community = () => {
   };
   return (
     <>
-    
+      <button
+        onClick={() => setOpenModal(true)}
+        className="py-5 px-4 inline-block text-white bg-tech-blue text-2xl font-bold rounded-lg hover:bg-gray-500 transition-all  ease-linear duration-200"
+      >
+        APPLY NOW
+      </button>
+
       {openModal && (
-        <CommunityForm
+        <AdvancedForm
           openModal={openModal}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
@@ -155,13 +161,13 @@ const Community = () => {
           handleSelect1={(e) => {
             setFormData({
               ...formData,
-              skills: e,
+              selectedCourse: e,
             });
           }}
           handleSelect2={(e) => {
             setFormData({
               ...formData,
-              state: e,
+              knowlegeOfTechyJaunt: e,
             });
           }}
           shake={shake}
@@ -173,65 +179,26 @@ const Community = () => {
               lastName: "",
               email: "",
               phoneNumber: "",
-              skills: "",
-              state: "",
+              selectedCourse: "",
+              knowlegeOfTechyJaunt: "",
+              gender: "",
+              reasonForConsideration: "",
             });
           }}
         />
       )}
-      <div className="z-0 mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative pb-20 py-10 lg:py-20 w-[90%] ">
-        <Circle
-          color="#0075FD"
-          className="absolute hidden xl:block top-36 left-[25%]"
-        />
-        <CurlyLine className="absolute hidden xl:block right-56 top-14" />
-        <Star className="absolute hidden xl:block top-28 -left-12" />
-        <Star2 className="absolute hidden xl:block top-36 left-[48%]" />
-        <div>
-          <p className="text-tech-blue font-semibold hidden xl:block">
-            START YOUR TECH JOURNEY
-          </p>
-          <h1 className="text-left tracking-wide lg:leading-[60px] text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 mt-10">
-            Welcome to
-            <span className="text-tech-blue relative whitespace-nowrap">
-              <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
-              Techyjaunt Community
-            </span>
-          </h1>
-          <p className="text-base md:text-lg md:leading-8 my-10 leading-7 text-gray-700">
-            Join a community of over 30,000 tech enthusiasts. As the African
-            Tech space continues to grow, we ensure you stay informed through
-            our vibrant community
-          </p>
-          <button
-            onClick={() => setOpenModal(true)}
-            className="font-bold w-full mb-10 bg-tech-blue hover:bg-gray-500 transition-all ease-linear duration-200 text-white text-sm md:text-lg py-3 px-10 rounded-lg mx-auto"
-          >
-            JOIN OUR TECH COMMUNITY HERE
-          </button>
-          <div className="flex items-center flex-wrap">
-            <Avatars />
-            <p className="text-xs lg:text-sm font-light text-gray-700">
-              Over 5K+ professionals trained.
-            </p>
-          </div>
-        </div>
-        <div className="relative grid place-items-center">
-          <Circle
-            color="#FFC27A"
-            className="absolute hidden xl:block -top-16 left-36"
-          />
-          <Circle
-            color="#6D39ED"
-            className="absolute hidden xl:block -bottom-5 left-24"
-          />
-          <div className="w-full h-full md:py-5 lg:py-0">
-            <Carouselnew />
-          </div>
-        </div>
-      </div>
       {pending && <Loader />}
     </>
   );
 };
-export default Community;
+
+const AdvancedApply = () => {
+  return (
+    <div className="bg-no-repeat bg-cover bg-center launchcta py-5 bg-blend-multiply bg-gray-500">
+      <div className="p-20 flex justify-center">
+        <ApplyBtn />
+      </div>
+    </div>
+  );
+};
+export default AdvancedApply;

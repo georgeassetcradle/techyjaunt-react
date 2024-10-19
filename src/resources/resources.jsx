@@ -396,36 +396,57 @@ export const courses = [
 export const howHeard = [
   {
     id: 1,
-    name: "INSTAGRAM",
+    name: "Instagram",
     value: "instagram",
   },
   {
     id: 2,
-    name: "FACEBOOK",
+    name: "Facebook",
     value: "facebook",
   },
   {
     id: 3,
-    name: "WHATSAPP TV",
+    name: "Whatsapp TV",
     value: "whatsapp tv",
   },
   {
     id: 4,
-    name: "THROUGH A FRIEND",
+    name: "Through a friend",
     value: "through a friend",
   },
   {
     id: 5,
-    name: "TWITTER",
+    name: "Twitter",
     value: "twitter",
   },
   {
     id: 6,
-    name: "YOUTUBE",
+    name: "Youtube",
     value: "youtube",
   },
 ];
-
+export const advancedBootcampSkils = [
+  {
+    id: 1,
+    name: "Product management",
+    value: "Product management",
+  },
+  {
+    id: 3,
+    name: "Frontend web development ",
+    value: "Frontend web development ",
+  },
+  {
+    id: 5,
+    name: "UI&UX Design",
+    value: "UI&UX Design",
+  },
+  {
+    id: 5,
+    name: "Data Analysis",
+    value: "Data Analysis",
+  },
+];
 export const hackathonSkills = [
   {
     id: 1,
@@ -1841,6 +1862,16 @@ export const cryptoBenefits = [
   "Introduction to P2P trading",
   "Introduction to NFTs",
   "⁠Getting a job in the crypto space",
+];
+export const bootcampBenefits = [
+  "Pre-recorded course materials",
+  "Live interactive classes",
+  "Students paired in groups for accountability and consistency",
+  "Access to our alumni community for mentorship",
+  "Access to the TechyJaunt Pro community",
+  "Opportunities to engage with mentors and industry experts",
+  "Certificate of completion",
+  "Job updates and additional resource materials",
 ];
 
 const links = ["gogole.com"];

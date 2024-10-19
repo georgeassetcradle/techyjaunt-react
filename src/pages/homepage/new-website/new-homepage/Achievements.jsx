@@ -8,7 +8,7 @@ import { Fade } from "react-reveal";
 import CountUpTimer from "../../../../hooks/CountUpTimer";
 const Achievements = () => {
   return (
-    <div className="w-[90%] xl:w-[85%] mx-auto pb-20 xl:pb-32">
+    <div className="w-[90%] xl:w-[85%] mx-auto py-20 xl:py-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="flex flex-col self-center">
           <div className="grid grid-cols-2 gap-y-5">

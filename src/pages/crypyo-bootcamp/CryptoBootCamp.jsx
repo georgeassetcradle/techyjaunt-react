@@ -283,7 +283,7 @@ const CryptoBootCamp = () => {
                   />
                 </div>
                 <div className=" grid place-content-center ">
-                  <h3 className="orbitron py-5 text-xl sm:text-2xl font-bold tracking-tight leading-none md:text-3xl">
+                  <h3 className="py-5 text-xl sm:text-2xl font-bold tracking-tight leading-none md:text-3xl">
                     LIMITED SLOTS AVAILABLE
                   </h3>
                   <button

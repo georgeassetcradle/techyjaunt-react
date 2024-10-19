@@ -94,6 +94,84 @@ server.post("/signup", (req, res) => {
     });
 });
 
+// ADVANCED BOOTCAMP
+server.post("/advanced-register", (req, res) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    selectedCourse,
+    knowlegeOfTechyJaunt,
+    gender,
+    reasonForConsideration,
+  } = req.body;
+  let launchpadListId = "191d8990-8bc4-11ef-8d2e-7350387a057f";
+
+  if (
+    firstName === "" ||
+    lastName === "" ||
+    email === "" ||
+    phoneNumber === "" ||
+    selectedCourse === "" ||
+    knowlegeOfTechyJaunt === "" ||
+    gender === "" ||
+    reasonForConsideration === ""
+  ) {
+    return res.status(500).json({
+      status: "failed",
+    });
+  }
+
+  fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      api_key,
+      email_address: email,
+      fields: {
+        EmailAddress: email,
+        FirstName: firstName,
+        LastName: lastName,
+        SelectedCourse: selectedCourse,
+        HowYouHeard: knowlegeOfTechyJaunt,
+        PhoneNumber: phoneNumber,
+        Gender: gender,
+        ReasonForConsideration: reasonForConsideration,
+      },
+      tags: ["STUDENT"],
+      status: "SUBSCRIBED",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "registered",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "existing",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(200).json({
+          status: "failed",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
 // email subscription
 server.post("/subscribe", (req, res) => {
   let listId = "56fcc9f4-c91c-11ed-a5a5-197bd1869247";
@@ -703,7 +781,7 @@ server.post("/delete-schedule", (req, res) => {
 });
 
 //survey
-server.post("/survey", (req, res) => {
+server.post("/survey-register", (req, res) => {
   const {
     emailAddress,
     apartmentType,

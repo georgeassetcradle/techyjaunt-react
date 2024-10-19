@@ -57,7 +57,7 @@ const CourseInfoHead = ({ data }) => {
               href={data.url}
               download={data.pdf}
               target="_blank"
-              className="text-center inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl"
+              className="text-center inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-xl"
             >
               Download Brochure
             </a>

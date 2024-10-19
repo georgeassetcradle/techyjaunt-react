@@ -7,6 +7,8 @@ import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import ScheduleThankyou from "./pages/schedule/ScheduleThankyou";
 import Error404Page from "./pages/Error404";
 import SurveyLandingPage from "./pages/survey/SurveyLandingPage";
+import AdvancedHome from "./pages/advanced/AdvancedHome";
+import AdvancedThankyou from "./pages/advanced/AdvancedThankyou";
 const SurveyThankyou = lazy(() => import("./pages/survey/SurveyThankyou"));
 // import VerifyPayment from "./pages/checkout-page/VerifyPayment";
 // import ErrorPayment from "./pages/checkout-page/ErrorPayment";
@@ -252,14 +254,37 @@ function App() {
               path="thank-you"
               element={
                 // <ProtectedRoute route="/survey" param="surveyComplete">
-                  <Suspense fallback={<GlobalBeat />}>
-                    <SurveyThankyou />
-                  </Suspense>
+                <Suspense fallback={<GlobalBeat />}>
+                  <SurveyThankyou />
+                </Suspense>
                 // </ProtectedRoute>
               }
             />
           </Route>
 
+          <Route path="advanced-bootcamp">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <AdvancedHome />
+                </Suspense>
+              }
+            />
+            <Route
+              path="thank-you"
+              element={
+                <ProtectedRoute
+                  route="/advanced-bootcamp"
+                  param="advancedRegistered"
+                >
+                  <Suspense fallback={<GlobalBeat />}>
+                    <AdvancedThankyou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          </Route>
           {/* old routing */}
           {/* CHECKOUT */}
           {/* <Route
@@ -334,26 +359,6 @@ function App() {
             </ProtectedRoute>
           }
         /> */}
-          {/* cryptobootcamp */}
-          {/* <Route
-          path="/crypto-bootcamp"
-          element={
-            <Suspense fallback={<GlobalBeat />}>
-              <CryptoBootCamp />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/crypto-bootcamp/thank-you"
-          element={
-            // <ProtectedRoute route="/crypto-bootcamp" param="cryptoRegistered">
-            <Suspense fallback={<GlobalBeat />}>
-              <CryptoThankyou />
-            </Suspense>
-            // </ProtectedRoute>
-          }
-        />
-      */}
         </Route>
         <Route path="*" element={<Error404Page />} />
       </Routes>

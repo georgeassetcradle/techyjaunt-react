@@ -220,52 +220,6 @@ input:-webkit-autofill:active {
   box-shadow: 0px 0px 50px #0176fba1;
 }
 
-.textfade {
-  animation: fade linear 5s forwards;
-}
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    display: none;
-  }
-}
-.textfade1 {
-  animation: fade1 linear 10s forwards;
-}
-@keyframes fade1 {
-  0% {
-    opacity: 0;
-    display: none;
-  }
-  50% {
-    display: none;
-    opacity: 0;
-  }
-  100% {
-    display: block;
-    opacity: 1;
-  }
-}
-.slide-right {
-  animation: fade2 linear 8s forwards;
-}
-@keyframes fade2 {
-  0% {
-    opacity: 0;
-    display: none;
-    transform: translateX(-50%);
-  }
-  70% {
-    display: block;
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.blue-bg{
+  background-image: url("images/blue-bg.jpg");
 }
