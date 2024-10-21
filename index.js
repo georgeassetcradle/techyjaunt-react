@@ -461,6 +461,7 @@ server.post("/community-register", (req, res) => {
         LastName: lastName,
         Skills: skills,
         State: state,
+        PhoneNumber: phoneNumber,
       },
       tags: ["COMMUNITY"],
       status: "SUBSCRIBED",

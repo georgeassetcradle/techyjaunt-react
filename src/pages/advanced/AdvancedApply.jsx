@@ -6,7 +6,7 @@ import { useSnackbar } from "notistack";
 import { gender, howHeard } from "../../resources/resources";
 import Loader from "../../globalcomponents/Loader";
 
-export const ApplyBtn = () => {
+export const ApplyBtn = ({className}) => {
   const { enqueueSnackbar } = useSnackbar();
   const handleSnackbar = (message, variant) => {
     enqueueSnackbar(message, { variant });
@@ -139,7 +139,7 @@ export const ApplyBtn = () => {
     <>
       <button
         onClick={() => setOpenModal(true)}
-        className="py-5 px-4 inline-block text-white bg-tech-blue text-2xl font-bold rounded-lg hover:bg-gray-500 transition-all  ease-linear duration-200"
+        className={className}
       >
         APPLY NOW
       </button>
@@ -194,9 +194,9 @@ export const ApplyBtn = () => {
 
 const AdvancedApply = () => {
   return (
-    <div className="bg-no-repeat bg-cover bg-center launchcta py-5 bg-blend-multiply bg-gray-500">
+    <div className="mt-16 bg-no-repeat bg-cover bg-center launchcta py-5 bg-blend-multiply bg-gray-500">
       <div className="p-20 flex justify-center">
-        <ApplyBtn />
+        <ApplyBtn className="py-5 px-4 inline-block text-white bg-tech-blue text-xl font-bold rounded-lg hover:bg-gray-500 transition-all  ease-linear duration-200"/>
       </div>
     </div>
   );

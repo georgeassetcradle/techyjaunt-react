@@ -184,7 +184,7 @@ video {
   }
 }
 .glow {
-  text-shadow: 2px 2px 30px white;
+  text-shadow: 2px 2px 80px white;
 }
 .shake {
   animation: shake 0.3s linear;

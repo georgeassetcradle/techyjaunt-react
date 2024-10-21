@@ -77,6 +77,39 @@ import icon3 from "../images/icon/icon3.png";
 import icon4 from "../images/icon/icon4.png";
 import { Link } from "react-router-dom";
 
+export const platforms = [
+  {
+    name: "Tech Cabal",
+    image: "/feature/techcabal.png",
+    link: "https://techcabal.com/2024/02/27/icp-hub-sahara-empowers-students-at-techyjaunt-event-beyond-the-campus-walls/",
+  },
+  {
+    name: "Techpoint NG",
+    image: "/feature/techpoint.png",
+    link: "https://techpoint.africa/2024/02/26/icp-hub-sahara-speaks-at-techyjaunts-event-beyond-the-campus-walls-building-a-tech-career-as-a-student/",
+  },
+  {
+    name: "Leadership",
+    image: "/feature/leadership.png",
+    link: "https://leadership.ng/2000-unn-students-empowered-in-emerging-tec/",
+  },
+  {
+    name: "Nigerian Tribune",
+    image: "/feature/tribune.png",
+    link: "https://tribuneonlineng.com/over-2000-students-empowered-as-tech-outfits-take-training-to-unn/",
+  },
+  {
+    name: "The Cable",
+    image: "/feature/cable.png",
+    link: "https://lifestyle.thecable.ng/tag/emerging-technology/",
+  },
+  {
+    name: "The Independent",
+    image: "/feature/independent.png",
+    link: "https://independent.ng/tech-firm-empowers-over-2000-students-through-training-at-unn/ ",
+  },
+];
+
 export const achievementIcons = [
   { img: icon1, num: 50, value: "Instructors" },
   { img: icon2, num: 5000, value: "Trained" },

@@ -13,7 +13,10 @@ const AdvancedHome = () => {
       <AdvancedVideo/>
       <AdvancedBenefit/>
       <AdvancedApply/>
-      {/* <Partners/> */}
+      <div className="my-20 lg:my-24">
+      <Partners/>
+      </div>
+    
       <FeaturePage/>
       <FooterSection/>
     </>

@@ -1,17 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import vidsrc from "/video/techyjaunt-testimonial.mp4";
 import { Fade } from "react-reveal";
+import { Circle, CurlyLine, Star, Star2 } from "../../resources/resources";
 
 const AdvancedVideo = () => {
   return (
     <>
-      <div className="w-[90%] mx-auto my-10 lg:my-16">
+      <div className="relative w-[90%] mx-auto mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-2 items-center">
+      <Circle
+          color="#0075FD"
+          className="absolute hidden md:block top-20 left-[40%]"
+        />
+        <CurlyLine className="absolute hidden md:block bottom-12 left-[20%]" />
+        <Star className="absolute hidden md:block top-28 -left-12" />
+        <Star2 className="absolute hidden md:block top-36 left-[48%]" />
         <Fade bottom>
-          <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl text-left tts mb-5">
-            Our Alumni Stories
+          <h2 className="relative text-tech-blue inline-block font-semibold text-2xl sm:text-3xl xl:text-5xl text-left tts mb-5">
+            Listen to stories from some of our past students!
           </h2>
         </Fade>
+        <div className=" rounded-md overflow-hidden">
         <AlumniVideo />
+        </div>
+       
       </div>
     </>
   );

@@ -14,7 +14,7 @@ import NewsLetter from "./Newsletter";
 import { Link } from "react-scroll";
 const FooterSection = () => {
   return (
-    <footer class="">
+    <footer class="bg-gray-50">
       <div className="w-[90%] pt-20 pb-14 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
